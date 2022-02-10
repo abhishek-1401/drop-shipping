@@ -1,3 +1,4 @@
+import sys
 from cart.cart import Cart
 
 from django.conf import settings
@@ -18,13 +19,13 @@ def checkout(request, first_name, last_name, email, address, zipcode, place, pho
 
 def notify_vendor(order):
     from_email = settings.DEFAULT_EMAIL_FROM
+    print(from_email)
 
     for vendor in order.vendors.all():
         to_email = vendor.created_by.email
         subject = 'New order'
         text_content = 'You have a new order!'
         html_content = render_to_string('order/email_notify_vendor.html', {'order': order, 'vendor': vendor})
-
         msg = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
         msg.attach_alternative(html_content, 'text/html')
         msg.send()

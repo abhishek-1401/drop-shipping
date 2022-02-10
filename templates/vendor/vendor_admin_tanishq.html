@@ -1,10 +1,14 @@
 {% extends 'core/base.html' %}
 
-{% block title %}Vendor Admin{% endblock title %}
+{% block title %}Tanishq.com{% endblock title %}
+{% block link %}<link rel="icon" href="https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/64x64/332b5b17990436a3fba238f4e6b52c42">{% endblock link %}
+
+{% block navbar %}
+{% endblock navbar %}
 
 {% block content %}
 
-    <h1 class="title">Vendor Admin - <span class="is-capitalized">{{vendor.name}}</span></h1>
+    <h1 class="title"><span class="is-capitalized">{{vendor.name}}</span></h1>
 
     <div class="mb-5">
         <strong>My Balance: </strong> ₹{{vendor.get_balance}} <br>
@@ -15,8 +19,7 @@
     
         <h2 class="is-size-3 mb-4">My Products</h2>
 
-        <a href="{% url 'vendor:add-product' %}" class="button is-dark is-uppercase mb-6">Add Product</a>
-        <a href="{% url 'vendor:edit-vendor' %}" class="button is-primary is-uppercase mb-6">Edit Vendor</a>
+        <!-- <a href="{% url 'vendor:add-product' %}" class="button is-dark is-uppercase mb-6">Add Product</a> -->
 
         {% if products %}
         
@@ -99,3 +102,5 @@
     </div>
 
 {% endblock content %}
+{% block footer %}
+{% endblock footer %}
