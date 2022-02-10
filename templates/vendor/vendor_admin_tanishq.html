@@ -81,7 +81,7 @@
     
                                 <tbody>
                                     {% for item in order.items.all %}
-                                        {% if item.vendor == request.user.vendor %}
+                                        {% if item.vendor.name == 'tanishq' %}
                                             <tr>
                                                 <td>{{ item.product.title }}</td>
                                                 <td>₹{{ item.product.price }}</td>
