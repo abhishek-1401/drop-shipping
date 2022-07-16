@@ -1,8 +1,10 @@
 # Form Images
+from decimal import MIN_ETINY
 from io import BytesIO
 from os import name
 from PIL import Image
 from django.core.files import File
+from django.core.validators import MinValueValidator
 
 from django.db import models
 from vendor.models import Vendor
@@ -27,7 +29,7 @@ class Product(models.Model):
     title = models.CharField(max_length=50)
     slug = models.SlugField(max_length=55)
     description = models.TextField(blank=True, null=True)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.DecimalField(max_digits=6, decimal_places=2, validators=[MinValueValidator(0)])
     added_date = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='uploads/', blank=True, null=True)
     thumbnail = models.ImageField(upload_to='uploads/', blank=True, null=True) # Change uploads to thumbnails 

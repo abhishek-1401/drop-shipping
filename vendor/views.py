@@ -48,9 +48,6 @@ def vendor_admin(request):
     
     products = vendor.products.all()
     orders = vendor.orders.all()
-
-    print(products)
-    print(orders)
     
     for order in orders:
         order.vendor_amount = 0
@@ -77,10 +74,6 @@ def vendor_admin_tanishq(request):
     
     products = vendor.products.all()
     orders = vendor.orders.all()
-
-    print('Tanishq')
-    print(products)
-    print(orders)
     
     for order in orders:
         order.vendor_amount = 0
@@ -107,10 +100,6 @@ def vendor_admin_roadster(request):
     
     products = vendor.products.all()
     orders = vendor.orders.all()
-
-    print('Roadster')
-    print(products)
-    print(orders)
     
     for order in orders:
         order.vendor_amount = 0

@@ -48,7 +48,9 @@ def cart_detail(request):
             
             except Exception:
                 messages.error(request, "Something went wrong with payment.")
-            
+        # else:
+        #     form = CheckoutForm()
+        
     else:
         form = CheckoutForm()
 
